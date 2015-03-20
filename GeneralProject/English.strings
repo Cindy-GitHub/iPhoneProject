@@ -1,0 +1,13 @@
+/* 
+  English.strings
+  GeneralProject
+
+  Created by Cindy on 11/24/14.
+  Copyright (c) 2014 Cindy. All rights reserved.
+*/
+
+"title" = "test data";
+"button" = "click me!";
+
+
+//login_account：账号/account;
