@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "GHRevealViewController.h"
 
-@interface DownloadViewController : UIViewController
+@interface DownloadViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableViewGroup;
 
 @end
