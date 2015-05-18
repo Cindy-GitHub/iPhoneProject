@@ -14,6 +14,8 @@
 #import "FlipAnimationViewController.h"
 #import "KeyboardViewController.h"
 #import "DownloadHttpImageViewController.h"
+#import "GHRevealViewController.h"
+#import "DownloadViewController.h"
 
 @interface AppDelegate ()
 
@@ -24,20 +26,6 @@
 {
     NSLog(@"oldStatusBarFrame : (%f,%f,%f,%f)",oldStatusBarFrame.origin.x,oldStatusBarFrame.origin.y,oldStatusBarFrame.size.width,oldStatusBarFrame.size.height);
 }
-
-
-- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
-{
-    if ([window.rootViewController isKindOfClass:NSClassFromString(@"UINavigationController")]) {
-        NSArray *arrays = [(UINavigationController *)window.rootViewController viewControllers];
-                NSLog(@"[arrays lastObject]  %@",[arrays lastObject]);
-        if ([[arrays lastObject] isKindOfClass:NSClassFromString(@"DownloadHttpImageViewController")]) {
-            return UIInterfaceOrientationMaskAll;//这里需要支持旋转
-        }
-    }
-    return UIInterfaceOrientationMaskPortrait;
-}
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -58,10 +46,15 @@
     //    ThreeViewController *threeController = [[ThreeViewController alloc] init];
     //    UINavigationController *navigationController3 = [[UINavigationController alloc] initWithRootViewController:threeController];
 //        FourViewController *fourController = [[FourViewController alloc] init];
-//        FlipAnimationViewController *flip = [[FlipAnimationViewController alloc] init];
+        FlipAnimationViewController *flip = [[FlipAnimationViewController alloc] init];
 //    KeyboardViewController *key = [[KeyboardViewController alloc] init];
-    DownloadHttpImageViewController *download  = [[DownloadHttpImageViewController alloc] init];
-    UINavigationController *navigationController4 = [[UINavigationController alloc] initWithRootViewController:download];
+//    DownloadHttpImageViewController *download  = [[DownloadHttpImageViewController alloc] init];
+    DownloadViewController *download = [[DownloadViewController alloc] init];
+    GHRevealViewController *reveal = [[GHRevealViewController alloc] init];
+    reveal.contentViewController = flip;
+    reveal.rightViewController = download;
+    UINavigationController *navigationController4 = [[UINavigationController alloc] initWithRootViewController:reveal];
+    
     
     //    navigationController.toolbarHidden = YES;
     navigationController4.navigationBarHidden = YES;
