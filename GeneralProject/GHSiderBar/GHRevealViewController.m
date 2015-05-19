@@ -7,7 +7,6 @@
 
 #import "GHRevealViewController.h"
 #import <QuartzCore/QuartzCore.h>
-#import "Masonry.h"
 
 
 #pragma mark -

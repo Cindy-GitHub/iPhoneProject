@@ -7,7 +7,7 @@
 //
 
 #import "DownloadViewController.h"
-#import "Masonry.h"
+#import "CDButtonView.h"
 
 @interface DownloadViewController ()
 
@@ -29,6 +29,114 @@
     
     self.tableViewGroup.dataSource = self;
     self.tableViewGroup.delegate = self;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 200.0, 250.0, 60.0)];
+    view.backgroundColor = [UIColor greenColor];
+    [self.view addSubview:view];
+    
+    CDButtonViewPressEventActionBlock actionBlock = ^(CDButtonView *view){
+        NSLog(@"%zi",view.tag);
+        switch (view.tag) {
+            case 1:
+            {
+                view.normalImage = [UIImage imageNamed:@"main_label_device_normal"];
+            }
+                break;
+            case 2:
+            {
+                
+            }
+                break;
+            case 3:
+            {
+                
+            }
+                break;
+            case 4:
+            {
+                
+            }
+                break;
+                
+            default:
+                break;
+        }
+    };
+    
+    CDButtonView *buttonView1 = [[CDButtonView alloc] init];
+    buttonView1.textLabel = @"download";
+    buttonView1.normalImage = [UIImage imageNamed:@"main_label_device_normal"];
+    buttonView1.highLightImage = [UIImage imageNamed:@"main_label_device"];
+    buttonView1.labelNormalColor = [UIColor grayColor];
+    buttonView1.lableHighLightColor = [UIColor greenColor];
+    
+    buttonView1.backgroundColor = [UIColor redColor];
+    buttonView1.tag = 1;
+    [buttonView1 addClickActionEvent:actionBlock];
+    CDButtonView *buttonView2 = [[CDButtonView alloc] init];
+    buttonView2.normalImage = [UIImage imageNamed:@"main_label_download_normal"];
+    buttonView2.highLightImage = [UIImage imageNamed:@"main_label_download"];
+    buttonView2.labelNormalColor = [UIColor grayColor];
+    buttonView2.lableHighLightColor = [UIColor greenColor];
+    buttonView2.textLabel = @"download";
+    buttonView2.backgroundColor = [UIColor yellowColor];
+    buttonView2.tag = 2;
+    [buttonView2 addClickActionEvent:actionBlock];
+    
+    CDButtonView *buttonView3 = [[CDButtonView alloc] init];
+    buttonView3.normalImage = [UIImage imageNamed:@"main_label_device_normal"];
+    buttonView3.highLightImage = [UIImage imageNamed:@"main_label_device"];
+    buttonView3.labelNormalColor = [UIColor grayColor];
+    buttonView3.lableHighLightColor = [UIColor greenColor];
+    buttonView3.backgroundColor = [UIColor redColor];
+    buttonView3.tag = 3;
+    [buttonView3 addClickActionEvent:actionBlock];
+    
+    CDButtonView *buttonView4 = [[CDButtonView alloc] init];
+    buttonView4.normalImage = [UIImage imageNamed:@"main_label_download_normal"];
+    buttonView4.highLightImage = [UIImage imageNamed:@"main_label_download"];
+    buttonView4.labelNormalColor = [UIColor grayColor];
+    buttonView4.lableHighLightColor = [UIColor greenColor];
+    buttonView4.backgroundColor = [UIColor yellowColor];
+    buttonView4.tag = 4;
+    [buttonView4 addClickActionEvent:actionBlock];
+    
+    
+    [view addSubview:buttonView1];
+    [view addSubview:buttonView2];
+    [view addSubview:buttonView3];
+    [view addSubview:buttonView4];
+    [buttonView1 makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(view.top);
+        make.left.equalTo(view.left);
+        make.bottom.equalTo(view.bottom);
+        make.width.equalTo(buttonView2.width);
+        make.right.equalTo(buttonView2.left).offset(0);
+    }];
+    
+    [buttonView2 makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(view.top);
+        make.right.equalTo(buttonView3.left).offset(0);
+        make.bottom.equalTo(view.bottom);
+        make.width.equalTo(buttonView3.width);
+    }];
+    
+    [buttonView3 makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(view.top);
+        make.right.equalTo(buttonView4.left).offset(0);
+        make.bottom.equalTo(view.bottom);
+        make.width.equalTo(buttonView4.width);
+    }];
+    
+    [buttonView4 makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(view.top);
+        make.right.equalTo(view.right);
+        make.bottom.equalTo(view.bottom);
+    }];
+    
 }
 
 - (void)headerButtonPressEvent:(UIButton *)headerButton
