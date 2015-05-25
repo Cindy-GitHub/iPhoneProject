@@ -113,23 +113,23 @@
         make.top.equalTo(view.top);
         make.left.equalTo(view.left);
         make.bottom.equalTo(view.bottom);
-        make.width.equalTo(buttonView2.width);
-        make.right.equalTo(buttonView2.left).offset(0);
-    }];
-    
-    [buttonView2 makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(view.top);
-        make.right.equalTo(buttonView3.left).offset(0);
-        make.bottom.equalTo(view.bottom);
-        make.width.equalTo(buttonView3.width);
-    }];
-    
-    [buttonView3 makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(view.top);
-        make.right.equalTo(buttonView4.left).offset(0);
-        make.bottom.equalTo(view.bottom);
         make.width.equalTo(buttonView4.width);
+        make.right.equalTo(buttonView4.left).offset(0);
     }];
+    
+//    [buttonView2 makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(view.top);
+//        make.right.equalTo(buttonView3.left).offset(0);
+//        make.bottom.equalTo(view.bottom);
+//        make.width.equalTo(buttonView3.width);
+//    }];
+//    
+//    [buttonView3 makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(view.top);
+//        make.right.equalTo(buttonView4.left).offset(0);
+//        make.bottom.equalTo(view.bottom);
+//        make.width.equalTo(buttonView4.width);
+//    }];
     
     [buttonView4 makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(view.top);
