@@ -8,17 +8,42 @@
 
 #import "CDButtonView.h"
 
-enum State{
-    NormalState = 0,
-    HighLightState,
-    DisenableState
-};
+//enum State{
+//    NormalState = 0,
+//    HighLightState,
+//    DisenableState
+//};
+
+
 
 @interface CDButtonView()
+{
+    UIImage *_image[3];
+    NSString *_labelText[3];
+    UIColor *_labelTextColor[3];
+    UIColor *_backgroundColor[3];
+}
+//  image
+//@property (nonatomic, retain) UIImage *imageNormal;
+//@property (nonatomic, retain) UIImage *imageHighLight;
+//@property (nonatomic, retain) UIImage *imageDisenable;
 
-@property (nonatomic, retain, getter = isImageView) UIImageView *imageView;
-@property (nonatomic, retain, getter = isLabel) UILabel *label;
-@property (nonatomic, getter = isState) enum State state;
+//  label text content
+//@property (nonatomic, retain) NSString *labelTextNormal;
+//@property (nonatomic, retain) NSString *labelTextHighLight;
+//@property (nonatomic, retain) NSString *labelTextDisenable;
+
+//  label text color
+//@property (nonatomic, retain) UIColor *labelTextColorNormal;
+//@property (nonatomic, retain) UIColor *lableTextColorHighLight;
+//@property (nonatomic, retain) UIColor *labelTextColorDisenable;
+
+//  background color
+//@property (nonatomic, retain) UIColor *backgroundColorNormal;
+//@property (nonatomic, retain) UIColor *backgroundColorHighLight;
+//@property (nonatomic, retain) UIColor *backgroundColorDisenable;
+
+
 
 @property (copy, nonatomic) void (^CDButtonViewPressEventActionBlock)(CDButtonView *);
 
@@ -31,167 +56,97 @@ enum State{
     self = [super init];
     if (self) {
         _enable = YES;
-        _state = NormalState;
+        _state = CDButtonControlStateNormal;
         
         _imageView = [[UIImageView alloc] init];
         _label = [[UILabel alloc] init];
         _label.textAlignment = NSTextAlignmentCenter;
         _label.font = [UIFont systemFontOfSize:12.0];
+        _label.textColor = [UIColor blackColor];
         [self addSubview:_imageView];
         [self addSubview:_label];
-        
-        
-//        CGSize imageSize = [_normalImage size];
-//        CGSize labelSize = [_label.text sizeWithAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],NSFontAttributeName: _label.font}];
-//        
-//        [_imageView makeConstraints:^(MASConstraintMaker *make) {
-//            make.size.equalTo(imageSize);
-//            make.centerX.equalTo(self.centerX);
-//            make.centerY.equalTo(self.centerY).offset(-(labelSize.height)/2.0);
-//        }];
-//        
-//        [_label makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.equalTo(self.left);
-//            make.right.equalTo(self.right);
-//            make.top.equalTo(_imageView.bottom);
-//            make.height.equalTo(labelSize.height);
-//        }];
     }
     
+    self.backgroundColor = [UIColor clearColor];
     return self;
 }
 
-- (instancetype)initWithNormalImage:(UIImage *)normalImage  andLableText:(NSString *)textLabel andFont:(UIFont *)labelFont andNormalColor:(UIColor *)normalColor
+- (instancetype)initWithFrame:(CGRect)frame
 {
-    self = [super init];
+    self = [super initWithFrame:frame];
     if (self) {
-        
         _enable = YES;
-        _state = NormalState;
-        _normalImage = normalImage;
-        _labelNormalColor = normalColor;
-        
-        _imageView = [[UIImageView alloc] initWithImage:_normalImage];
+        _state = CDButtonControlStateNormal;
+
+        _imageView = [[UIImageView alloc] init];
         _label = [[UILabel alloc] init];
-        _label.text = textLabel;
-        _label.font = labelFont;
         _label.textAlignment = NSTextAlignmentCenter;
-        _label.textColor = _labelNormalColor;
+        _label.font = [UIFont systemFontOfSize:12.0];
+        _label.textColor = [UIColor blackColor];
         [self addSubview:_imageView];
         [self addSubview:_label];
-        
-        
-        CGSize imageSize = [_normalImage size];
-        CGSize labelSize = [_label.text sizeWithAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],NSFontAttributeName: _label.font}];
-        
-        [_imageView makeConstraints:^(MASConstraintMaker *make) {
-            make.size.equalTo(imageSize);
-            make.centerX.equalTo(self.centerX);
-            make.centerY.equalTo(self.centerY).offset(-(labelSize.height)/2.0);
-        }];
-        
-        [_label makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.left);
-            make.right.equalTo(self.right);
-            make.top.equalTo(_imageView.bottom);
-            make.height.equalTo(labelSize.height);
-        }];
-        
     }
     
+    self.backgroundColor = [UIColor clearColor];
     return self;
 }
 
-#pragma mark setter method
-- (void)setNormalImage:(UIImage *)normalImage
+#pragma mark - setter method
+- (void)setState:(CDButtonViewControlState)state
 {
-    _normalImage = normalImage;
-    [self updateImageAndLabelState];
-}
-
-- (void)setHighLightImage:(UIImage *)highLightImage
-{
-    _highLightImage = highLightImage;
-    [self updateImageAndLabelState];
-}
-
-- (void)setDisenableImage:(UIImage *)disenableImage
-{
-    _disenableImage = disenableImage;
-    [self updateImageAndLabelState];
-}
-
-- (void)setTextLabel:(NSString *)textLabel
-{
-    _textLabel = textLabel;
-    [self updateImageAndLabelState];
-}
-
-- (void)setEnable:(BOOL)enable
-{
-    if (enable) {
-        self.state = NormalState;
-    } else {
-        self.state = DisenableState;
+    if (_state != state) {
+         _state = state;
+        [self updateButtonContentAndConstraint];
     }
-    _enable = enable;
 }
 
-- (void)setState:(enum State)state
+#pragma mark - view method
+- (void)layoutSubviews
 {
-    _state = state;
-    [self updateImageAndLabelState];
+    [super layoutSubviews];
+    [self updateButtonContentAndConstraint];
 }
 
 #pragma mark - Private Method
-- (void)updateImageAndLabelState
+- (void)updateButtonContentAndConstraint
 {
-    CGSize oldImageSize = [_imageView .image size];
+    //  保存旧的size
+    CGSize oldImageSize = [_imageView.image size];
     CGSize oldLabelSize = [_label.text sizeWithAttributes:@{NSForegroundColorAttributeName: _label.textColor , NSFontAttributeName: _label.font}];
-    switch (self.state) {
-        case NormalState:
-        {
-            if (_normalImage && self.imageView.image != _normalImage) {
-                self.imageView.image = _normalImage;
-            }
-            if (_labelNormalColor && self.label.textColor != _labelNormalColor) {
-                self.label.textColor = _labelNormalColor;
-            }
-            if ([_label.text isEqualToString:_textLabel] == NO) {
-                _label.text = _textLabel;
-            }
+
+    //  更新显示内容
+    if (_image[self.state]) {
+        if (self.imageView.image != _image[self.state]) {
+            self.imageView.image = _image[self.state];
         }
-            break;
-        case HighLightState:
-        {
-            if (_highLightImage && self.imageView.image != _highLightImage) {
-                self.imageView.image = _highLightImage;
-            }
-            if (_lableHighLightColor && self.label.textColor != _lableHighLightColor) {
-                self.label.textColor = _lableHighLightColor;
-            }
-            if ([_label.text isEqualToString:_textLabel] == NO) {
-                _label.text = _textLabel;
-            }
-        }
-            break;
-        case DisenableState:
-        {
-            if (_disenableImage && self.imageView.image != _disenableImage) {
-                self.imageView.image = _disenableImage;
-            }
-            if (_labelDisenableColor && self.label.textColor != _labelDisenableColor) {
-                self.label.textColor = _labelDisenableColor;
-            }
-            if ([_label.text isEqualToString:_textLabel] == NO) {
-                _label.text = _textLabel;
-            }
-        }
-            break;
-        default:
-            break;
+    } else {
+        self.imageView.image = _image[CDButtonControlStateNormal];
     }
     
+    if (_labelTextColor[self.state]) {
+        if (self.label.textColor != _labelTextColor[self.state]) {
+            self.label.textColor = _labelTextColor[self.state];
+        }
+    } else {
+        self.label.textColor = _labelTextColor[CDButtonControlStateNormal];
+    }
+    if (_labelText[self.state]) {
+        if ([self.label.text isEqualToString:_labelText[self.state]] == NO) {
+            self.label.text = _labelText[self.state];
+        }
+    } else {
+        self.label.text = _labelText[CDButtonControlStateNormal];
+    }
+    
+    if (_backgroundColor[self.state]) {
+        if (self.backgroundColor != _backgroundColor[self.state]) {
+            self.backgroundColor = _backgroundColor[self.state];
+        }
+    } else {
+        self.backgroundColor = _backgroundColor[CDButtonControlStateNormal];
+    }
+
+    //  根据新旧size来调整subview的约束
     CGSize labelNewSize  = [_label.text sizeWithAttributes:@{NSForegroundColorAttributeName: _label.textColor , NSFontAttributeName: _label.font}];
     if ((CGSizeEqualToSize(oldImageSize, [_imageView.image size]) == NO) || (CGSizeEqualToSize(oldLabelSize, labelNewSize) == NO)) {
         [_imageView updateConstraints:^(MASConstraintMaker *make) {
@@ -216,28 +171,58 @@ enum State{
     self.CDButtonViewPressEventActionBlock = CDButtonViewPressEvent;
 }
 
+- (void)setImage:(UIImage *)image forState:(CDButtonViewControlState)state
+{
+    _image[state] = image;
+    if (self.state == state) {
+        [self updateButtonContentAndConstraint];
+    }
+}
 
-#pragma mark - UIKit Method
+- (void)setTitle:(NSString *)title forState:(CDButtonViewControlState)state
+{
+    _labelText[state] = title;
+    if (self.state == state) {
+        [self updateButtonContentAndConstraint];
+    }
+}
+
+- (void)setTitleColor:(UIColor *)color forState:(CDButtonViewControlState)state
+{
+    _labelTextColor[state] = color;
+    if (self.state == state) {
+        [self updateButtonContentAndConstraint];
+    }
+}
+
+- (void)setBackgroundColor:(UIColor *)color forState:(CDButtonViewControlState)state
+{
+    _backgroundColor[state] = color;
+    if (self.state == state) {
+        [self updateButtonContentAndConstraint];
+    }
+}
+
+
+
+#pragma mark - Event Method
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     if (self.enable) {  //  能响应点击
-        self.state = HighLightState;
+        self.state = CDButtonControlStateHighlighted;
     }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     if (self.enable) {  //  能响应点击
+        self.enable = NO;
         self.CDButtonViewPressEventActionBlock(self); //  执行点击操作
         dispatch_after( dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            self.state = NormalState;
+            self.state = CDButtonControlStateNormal;
+            self.enable = YES;
         });
     }
-}
-
-- (void)layoutSubviews
-{
-    [self updateImageAndLabelState];
 }
 
 @end

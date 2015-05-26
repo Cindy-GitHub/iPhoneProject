@@ -8,26 +8,42 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_OPTIONS(NSUInteger, CDButtonViewControlState) {
+    CDButtonControlStateNormal  = 0,
+    CDButtonControlStateHighlighted = 1,
+    CDButtonControlStateDisabled = 2
+};
+
 @interface CDButtonView : UIView
 
-@property (nonatomic, retain) UIImage *normalImage;
-@property (nonatomic, retain) UIImage *highLightImage;
-@property (nonatomic, retain) UIImage *disenableImage;
+@property(nonatomic,readonly,retain) UIImageView *imageView;
+@property(nonatomic,readonly,retain) UILabel *label;
 
-@property (nonatomic, retain) NSString *textLabel;
-@property (nonatomic, retain) UIColor *labelNormalColor;
-@property (nonatomic, retain) UIColor *lableHighLightColor;
-@property (nonatomic, retain) UIColor *labelDisenableColor;
-
-@property (nonatomic) BOOL enable;
+@property(nonatomic,readonly,getter=isState) CDButtonViewControlState state;
+@property(nonatomic,readwrite) BOOL enable;
 
 
-//  init method
-- (instancetype)initWithNormalImage:(UIImage *)normalImage  andLableText:(NSString *)textLabel andFont:(UIFont *)labelFont andNormalColor:(UIColor *)normalColor;
+//  set content for state
+- (void)setImage:(UIImage *)image forState:(CDButtonViewControlState)state;
+- (void)setTitle:(NSString *)title forState:(CDButtonViewControlState)state;
+- (void)setTitleColor:(UIColor *)color forState:(CDButtonViewControlState)state;
+- (void)setBackgroundColor:(UIColor *)color forState:(CDButtonViewControlState)state;
 
 //  add action
 - (void)addClickActionEvent:(void (^)(CDButtonView *view))CDButtonViewPressEvent;
 
 @end
 
+//  block 声明
 typedef void (^CDButtonViewPressEventActionBlock)(CDButtonView *view);
+
+
+
+
+
+
+
+
+
+
+
