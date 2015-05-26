@@ -96,6 +96,16 @@
     }
 }
 
+- (void)setEnable:(BOOL)enable
+{
+    if (enable) {
+        self.state = CDButtonControlStateNormal;
+    } else {
+        self.state = CDButtonControlStateDisabled;
+    }
+    _enable = enable;
+}
+
 #pragma mark - view method
 - (void)layoutSubviews
 {
