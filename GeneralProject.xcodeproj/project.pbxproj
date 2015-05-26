@@ -23,13 +23,13 @@
 		546D0D291AA0318000E657A0 /* TestDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 546D0D271AA0318000E657A0 /* TestDemoViewController.xib */; };
 		546D0D2C1AA031C000E657A0 /* CDKeyBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 546D0D2B1AA031C000E657A0 /* CDKeyBoardView.m */; };
 		546D0D2E1AA031E400E657A0 /* CDKeyBoardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 546D0D2D1AA031E400E657A0 /* CDKeyBoardView.xib */; };
+		5484C8801B14505C000EB172 /* CDButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5484C87F1B14505C000EB172 /* CDButton.m */; };
 		549689A81A21F98C00A35680 /* MyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 549689A61A21F98C00A35680 /* MyCell.m */; };
 		549689A91A21F98C00A35680 /* MyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 549689A71A21F98C00A35680 /* MyCell.xib */; };
 		5497E8C41AA4870C00951724 /* DownloadHttpImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5497E8C21AA4870C00951724 /* DownloadHttpImageViewController.m */; };
 		5497E8C51AA4870C00951724 /* DownloadHttpImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5497E8C31AA4870C00951724 /* DownloadHttpImageViewController.xib */; };
 		54A8A1DC1A21D9EE001B3401 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A8A1DA1A21D9EE001B3401 /* TwoViewController.m */; };
 		54A8A1DD1A21D9EE001B3401 /* TwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54A8A1DB1A21D9EE001B3401 /* TwoViewController.xib */; };
-		54B7A6FD1B0B046A0032CEA5 /* CDButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B7A6FC1B0B046A0032CEA5 /* CDButtonView.m */; };
 		54B7A70A1B0B13C80032CEA5 /* main_label_device_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 54B7A6FE1B0B13C80032CEA5 /* main_label_device_normal.png */; };
 		54B7A70B1B0B13C80032CEA5 /* main_label_device_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54B7A6FF1B0B13C80032CEA5 /* main_label_device_normal@2x.png */; };
 		54B7A70C1B0B13C80032CEA5 /* main_label_device_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 54B7A7001B0B13C80032CEA5 /* main_label_device_normal@3x.png */; };
@@ -113,6 +113,8 @@
 		546D0D2A1AA031C000E657A0 /* CDKeyBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDKeyBoardView.h; sourceTree = "<group>"; };
 		546D0D2B1AA031C000E657A0 /* CDKeyBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDKeyBoardView.m; sourceTree = "<group>"; };
 		546D0D2D1AA031E400E657A0 /* CDKeyBoardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDKeyBoardView.xib; sourceTree = "<group>"; };
+		5484C87E1B14505C000EB172 /* CDButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDButton.h; sourceTree = "<group>"; };
+		5484C87F1B14505C000EB172 /* CDButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDButton.m; sourceTree = "<group>"; };
 		549689A51A21F98C00A35680 /* MyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCell.h; sourceTree = "<group>"; };
 		549689A61A21F98C00A35680 /* MyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCell.m; sourceTree = "<group>"; };
 		549689A71A21F98C00A35680 /* MyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCell.xib; sourceTree = "<group>"; };
@@ -123,8 +125,6 @@
 		54A8A1D91A21D9EE001B3401 /* TwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoViewController.h; sourceTree = "<group>"; };
 		54A8A1DA1A21D9EE001B3401 /* TwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoViewController.m; sourceTree = "<group>"; };
 		54A8A1DB1A21D9EE001B3401 /* TwoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoViewController.xib; sourceTree = "<group>"; };
-		54B7A6FB1B0B046A0032CEA5 /* CDButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDButtonView.h; sourceTree = "<group>"; };
-		54B7A6FC1B0B046A0032CEA5 /* CDButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDButtonView.m; sourceTree = "<group>"; };
 		54B7A6FE1B0B13C80032CEA5 /* main_label_device_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_label_device_normal.png; sourceTree = "<group>"; };
 		54B7A6FF1B0B13C80032CEA5 /* main_label_device_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_label_device_normal@2x.png"; sourceTree = "<group>"; };
 		54B7A7001B0B13C80032CEA5 /* main_label_device_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_label_device_normal@3x.png"; sourceTree = "<group>"; };
@@ -335,8 +335,8 @@
 		54B7A6FA1B0B03D50032CEA5 /* CustomUIView */ = {
 			isa = PBXGroup;
 			children = (
-				54B7A6FB1B0B046A0032CEA5 /* CDButtonView.h */,
-				54B7A6FC1B0B046A0032CEA5 /* CDButtonView.m */,
+				5484C87E1B14505C000EB172 /* CDButton.h */,
+				5484C87F1B14505C000EB172 /* CDButton.m */,
 			);
 			path = CustomUIView;
 			sourceTree = "<group>";
@@ -576,10 +576,10 @@
 				54B9DF521B09B420000B01C0 /* MASCompositeConstraint.m in Sources */,
 				54B9DF581B09B420000B01C0 /* NSArray+MASAdditions.m in Sources */,
 				54B9DF391B09A4BA000B01C0 /* GHRevealViewController.m in Sources */,
+				5484C8801B14505C000EB172 /* CDButton.m in Sources */,
 				546D0D281AA0318000E657A0 /* TestDemoViewController.m in Sources */,
 				54B9DF5A1B09B420000B01C0 /* View+MASAdditions.m in Sources */,
 				54B9DF571B09B420000B01C0 /* MASViewConstraint.m in Sources */,
-				54B7A6FD1B0B046A0032CEA5 /* CDButtonView.m in Sources */,
 				54B9DF531B09B420000B01C0 /* MASConstraint.m in Sources */,
 				546D0D2C1AA031C000E657A0 /* CDKeyBoardView.m in Sources */,
 			);

@@ -7,7 +7,7 @@
 //
 
 #import "DownloadViewController.h"
-#import "CDButtonView.h"
+#import "CDButton.h"
 
 @interface DownloadViewController ()
 
@@ -37,36 +37,7 @@
     view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:view];
     
-    CDButtonViewPressEventActionBlock actionBlock = ^(CDButtonView *view){
-        NSLog(@"%zi",view.tag);
-        switch (view.tag) {
-            case 1:
-            {
-                
-            }
-                break;
-            case 2:
-            {
-                [view setImage:[UIImage imageNamed:@"main_label_device_normal"] forState:CDButtonControlStateNormal];
-            }
-                break;
-            case 3:
-            {
-                [view setImage:nil forState:CDButtonControlStateHighlighted];
-            }
-                break;
-            case 4:
-            {
-                
-            }
-                break;
-                
-            default:
-                break;
-        }
-    };
-    
-    CDButtonView *buttonView1 = [[CDButtonView alloc] init];
+    CDButton *buttonView1 = [[CDButton alloc] init];
     [buttonView1 setTitle:@"device" forState:CDButtonControlStateNormal];
     [buttonView1 setImage:[UIImage imageNamed:@"main_label_device_normal"] forState:CDButtonControlStateNormal];
     [buttonView1 setImage:[UIImage imageNamed:@"main_label_device"] forState:CDButtonControlStateHighlighted];
@@ -74,9 +45,12 @@
     [buttonView1 setTitleColor:[UIColor greenColor] forState:CDButtonControlStateHighlighted];
 //    buttonView1.backgroundColor = [UIColor redColor];
     buttonView1.tag = 1;
-    [buttonView1 addClickActionEvent:actionBlock];
+    [buttonView1 addBlockCodeActionEvent:^(CDButton *view) {
+        
+    }];
+    [buttonView1 addTarget:self andAction:@selector(testCDButtonMessageSend:)];
     
-    CDButtonView *buttonView2 = [[CDButtonView alloc] init];
+    CDButton *buttonView2 = [[CDButton alloc] init];
     [buttonView2 setTitle:@"download" forState:CDButtonControlStateNormal];
     [buttonView2 setImage:[UIImage imageNamed:@"main_label_download_normal"] forState:CDButtonControlStateNormal];
     [buttonView2 setImage:[UIImage imageNamed:@"main_label_download"] forState:CDButtonControlStateHighlighted];
@@ -84,9 +58,9 @@
     [buttonView2 setTitleColor:[UIColor greenColor] forState:CDButtonControlStateHighlighted];
 //    buttonView2.backgroundColor = [UIColor yellowColor];
     buttonView2.tag = 2;
-    [buttonView2 addClickActionEvent:actionBlock];
+    [buttonView2 addTarget:self andAction:@selector(testCDButtonMessageSend:)];
     
-    CDButtonView *buttonView3 = [[CDButtonView alloc] init];
+    CDButton *buttonView3 = [[CDButton alloc] init];
     [buttonView3 setTitle:@"device" forState:CDButtonControlStateNormal];
     [buttonView3 setImage:[UIImage imageNamed:@"main_label_device_normal"] forState:CDButtonControlStateNormal];
     [buttonView3 setImage:[UIImage imageNamed:@"main_label_device"] forState:CDButtonControlStateHighlighted];
@@ -94,9 +68,9 @@
     [buttonView3 setTitleColor:[UIColor greenColor] forState:CDButtonControlStateHighlighted];
 //    buttonView3.backgroundColor = [UIColor redColor];
     buttonView3.tag = 3;
-    [buttonView3 addClickActionEvent:actionBlock];
+    [buttonView3 addTarget:self andAction:@selector(testCDButtonMessageSend:)];
     
-    CDButtonView *buttonView4 = [[CDButtonView alloc] init];
+    CDButton *buttonView4 = [[CDButton alloc] init];
     [buttonView4 setTitle:@"download" forState:CDButtonControlStateNormal];
     [buttonView4 setImage:[UIImage imageNamed:@"main_label_download_normal"] forState:CDButtonControlStateNormal];
     [buttonView4 setImage:[UIImage imageNamed:@"main_label_download"] forState:CDButtonControlStateHighlighted];
@@ -104,7 +78,7 @@
     [buttonView4 setTitleColor:[UIColor greenColor] forState:CDButtonControlStateHighlighted];
 //    buttonView4.backgroundColor = [UIColor yellowColor];
     buttonView4.tag = 4;
-    [buttonView4 addClickActionEvent:actionBlock];
+    [buttonView4 addTarget:self andAction:@selector(testCDButtonMessageSend:)];
     
     
     [view addSubview:buttonView1];
@@ -139,6 +113,37 @@
         make.bottom.equalTo(view.bottom);
     }];
     
+}
+
+- (void)testCDButtonMessageSend:(CDButton *)buttonView
+{
+    NSLog(@"buttonView.tag : %zi",buttonView.tag);
+    NSLog(@"testCDButtonMessageSend : %@",buttonView);
+    switch (buttonView.tag) {
+        case 1:
+        {
+            
+        }
+            break;
+        case 2:
+        {
+            [buttonView setImage:[UIImage imageNamed:@"main_label_device_normal"] forState:CDButtonControlStateNormal];
+        }
+            break;
+        case 3:
+        {
+            [buttonView setImage:nil forState:CDButtonControlStateHighlighted];
+        }
+            break;
+        case 4:
+        {
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (void)headerButtonPressEvent:(UIButton *)headerButton

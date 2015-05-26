@@ -1,22 +1,15 @@
 //
-//  CDButtonView.m
+//  CDButton.m
 //  GeneralProject
 //
-//  Created by Chendi on 15/5/19.
+//  Created by Chendi on 15/5/26.
 //  Copyright (c) 2015年 Cindy. All rights reserved.
 //
 
-#import "CDButtonView.h"
+#import "CDButton.h"
+#import <objc/message.h>
 
-//enum State{
-//    NormalState = 0,
-//    HighLightState,
-//    DisenableState
-//};
-
-
-
-@interface CDButtonView()
+@interface CDButton ()
 {
     UIImage *_image[3];
     NSString *_labelText[3];
@@ -44,12 +37,15 @@
 //@property (nonatomic, retain) UIColor *backgroundColorDisenable;
 
 
-
-@property (copy, nonatomic) void (^CDButtonViewPressEventActionBlock)(CDButtonView *);
+@property (weak, nonatomic) id actionTarget; // 监听器
+@property (assign, nonatomic) SEL actionSelector; // 监听方法
+@property (copy, nonatomic) void (^CDButtonViewPressEventActionBlock)(CDButton *);
 
 @end
 
-@implementation CDButtonView
+
+@implementation CDButton
+
 #pragma mark  init Method
 - (instancetype)init
 {
@@ -77,7 +73,7 @@
     if (self) {
         _enable = YES;
         _state = CDButtonControlStateNormal;
-
+        
         _imageView = [[UIImageView alloc] init];
         _label = [[UILabel alloc] init];
         _label.textAlignment = NSTextAlignmentCenter;
@@ -95,7 +91,7 @@
 - (void)setState:(CDButtonViewControlState)state
 {
     if (_state != state) {
-         _state = state;
+        _state = state;
         [self updateButtonContentAndConstraint];
     }
 }
@@ -113,7 +109,7 @@
     //  保存旧的size
     CGSize oldImageSize = [_imageView.image size];
     CGSize oldLabelSize = [_label.text sizeWithAttributes:@{NSForegroundColorAttributeName: _label.textColor , NSFontAttributeName: _label.font}];
-
+    
     //  更新显示内容
     if (_image[self.state]) {
         if (self.imageView.image != _image[self.state]) {
@@ -145,7 +141,7 @@
     } else {
         self.backgroundColor = _backgroundColor[CDButtonControlStateNormal];
     }
-
+    
     //  根据新旧size来调整subview的约束
     CGSize labelNewSize  = [_label.text sizeWithAttributes:@{NSForegroundColorAttributeName: _label.textColor , NSFontAttributeName: _label.font}];
     if ((CGSizeEqualToSize(oldImageSize, [_imageView.image size]) == NO) || (CGSizeEqualToSize(oldLabelSize, labelNewSize) == NO)) {
@@ -166,11 +162,18 @@
 }
 
 #pragma mark - public method
-- (void)addClickActionEvent:(void (^)(CDButtonView *view))CDButtonViewPressEvent
+- (void)addBlockCodeActionEvent:(void (^)(CDButton *view))CDButtonViewPressEventBlock
 {
-    self.CDButtonViewPressEventActionBlock = CDButtonViewPressEvent;
+    self.CDButtonViewPressEventActionBlock = CDButtonViewPressEventBlock;
 }
 
+- (void)addTarget:(id)target andAction:(SEL)selector
+{
+    self.actionTarget = target;
+    self.actionSelector = selector;
+}
+
+#pragma mark -
 - (void)setImage:(UIImage *)image forState:(CDButtonViewControlState)state
 {
     _image[state] = image;
@@ -217,7 +220,15 @@
 {
     if (self.enable) {  //  能响应点击
         self.enable = NO;
-        self.CDButtonViewPressEventActionBlock(self); //  执行点击操作
+        
+        if ([self.actionTarget respondsToSelector:self.actionSelector]) { // 回调即消息发送
+            messageSend(messageTarget(self.actionTarget), self.actionSelector, self);
+        }
+        
+        if (self.CDButtonViewPressEventActionBlock) {  //  执行点击操作的block
+            self.CDButtonViewPressEventActionBlock(self);
+        }
+        
         dispatch_after( dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             self.state = CDButtonControlStateNormal;
             self.enable = YES;
