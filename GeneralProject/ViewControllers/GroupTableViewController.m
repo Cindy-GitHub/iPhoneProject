@@ -9,6 +9,8 @@
 #import "GroupTableViewController.h"
 #import "GroupCellTableViewCell.h"
 
+#import "DBUser.h"
+
 @interface GroupTableViewController ()
 {
     NSMutableArray *dateArray;
@@ -34,6 +36,55 @@
 //    maskLayer.frame = view2.bounds;
 //    maskLayer.path = maskPath.CGPath;
 //    view2.layer.mask = maskLayer;
+    
+    
+//    DBUser *user = [[DBUser alloc] init];
+//    user.name = @"张三";
+//    user.sex = @"女";
+//    user.age = 25;
+//    [user insertToDb];
+//
+//    DBUser *user2 = [[DBUser alloc] init];
+//    user2.name = @"张二";
+//    user2.sex = @"女";
+//    user2.age = 25;
+//    [user2 insertToDb];
+    
+    
+    
+    NSString  *appPath = [NSString stringWithFormat:@"%@",[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]];
+    NSLog(@"app path : %@",appPath);
+    
+//    NSArray *users = [DBUser dbObjectsWhere:@"name = \"张三\"" orderby:nil];
+//    for (DBUser *user in users) {
+//        [user removeFromDb];
+//    }
+    
+    
+    NSArray *allData = [DBUser allDbObjects];
+    for (DBUser *user in allData) {
+        NSLog(@"[user keyValues] : %@",[user valueForKey:@"name"]);
+        NSLog(@"[user keyValues] : %@",[user valueForKey:@"sex"]);
+        NSLog(@"[user keyValues] : %@",[user valueForKey:@"age"]);
+        NSLog(@"[user keyValues] : %@",[user keyValues]);
+    }
+
+//    NSLog(@"[DBUser allDbObjects] : %@",[DBUser allDbObjects]);
+//    NSArray *users = [DBUser dbObjectsWhere:@"__id__=1" orderby:nil];
+//    for (DBUser *user in users) {
+//        user.name = @"李四";
+//        user.age = 19;
+//        user.sex = @"男";
+//        [user updatetoDb];
+//    }
+//    
+//    NSArray *users2 = [DBUser dbObjectsWhere:@"__id__=2" orderby:nil];
+//    for (DBUser *user in users2) {
+//        user.name = @"王五";
+//        user.age = 37;
+//        [user updatetoDb];
+//    }
+    
     
     
     

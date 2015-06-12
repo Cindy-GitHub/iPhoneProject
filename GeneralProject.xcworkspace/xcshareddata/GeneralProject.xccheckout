@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>1FBF699C-6FBC-4BD5-B58C-183AB9F1E0E0</string>
+	<key>IDESourceControlProjectName</key>
+	<string>GeneralProject</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>61DB72DBEA1435652043419BCF0772E60EAE450F</key>
+		<string>https://github.com/Cindy-GitHub/iPhoneProject</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>GeneralProject.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>61DB72DBEA1435652043419BCF0772E60EAE450F</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Cindy-GitHub/iPhoneProject</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>61DB72DBEA1435652043419BCF0772E60EAE450F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>61DB72DBEA1435652043419BCF0772E60EAE450F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iPhoneProject</string>
+		</dict>
+	</array>
+</dict>
+</plist>

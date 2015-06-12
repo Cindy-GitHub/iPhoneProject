@@ -1,0 +1,26 @@
+PODS:
+  - CocoaLumberjack (2.0.0):
+    - CocoaLumberjack/Default (= 2.0.0)
+    - CocoaLumberjack/Extensions (= 2.0.0)
+  - CocoaLumberjack/Core (2.0.0)
+  - CocoaLumberjack/Default (2.0.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.0.0):
+    - CocoaLumberjack/Default
+  - Masonry (0.6.1)
+  - MJExtension (2.3.2)
+  - STDbKit (1.0)
+
+DEPENDENCIES:
+  - CocoaLumberjack
+  - Masonry
+  - MJExtension
+  - STDbKit
+
+SPEC CHECKSUMS:
+  CocoaLumberjack: a6f77d987d65dc7ba86b0f84db7d0b9084f77bcb
+  Masonry: 4972309f2f134de9dd312f4dc4a21359b50e6caa
+  MJExtension: 0047b48da8e70d7d5d9cd056a8ff8407977d48ac
+  STDbKit: c5f636b216c72315cae6dba2cd5f74e0d31531ef
+
+COCOAPODS: 0.37.2
