@@ -1,6 +1,6 @@
 //
 //  CDButton.h
-//  GeneralProject
+//  ScaleNet
 //
 //  Created by Chendi on 15/5/26.
 //  Copyright (c) 2015年 Cindy. All rights reserved.
@@ -17,14 +17,21 @@ typedef NS_OPTIONS(NSUInteger, CDButtonViewControlState) {
     CDButtonControlStateDisabled = 2
 };
 
+typedef NS_OPTIONS(NSUInteger, CDButtonContentMode) {
+    CDButtonContentCenter = 0,
+    CDButtonContentLeft,
+    CDButtonContentRight,
+};
 
 @interface CDButton : UIView
 
 @property(nonatomic,readonly,retain) UIImageView *imageView;
 @property(nonatomic,readonly,retain) UILabel *label;
 
+@property(nonatomic,readwrite) CDButtonContentMode buttonContentMode;
 @property(nonatomic,readonly,getter=isState) CDButtonViewControlState state;
 @property(nonatomic,readwrite) BOOL enable;
+
 
 
 //  set content for state
@@ -32,7 +39,7 @@ typedef NS_OPTIONS(NSUInteger, CDButtonViewControlState) {
 - (void)setTitle:(NSString *)title forState:(CDButtonViewControlState)state;
 - (void)setTitleColor:(UIColor *)color forState:(CDButtonViewControlState)state;
 - (void)setBackgroundColor:(UIColor *)color forState:(CDButtonViewControlState)state;
-
+- (void)setButtonContentMode:(CDButtonContentMode)contentMode withOffset:(CGFloat)offset;
 
 //  add action event  (provide two way)
 - (void)addTarget:(id)taget andAction:(SEL)selector;  //  once way is message send

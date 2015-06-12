@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GroupTableViewController">
+            <connections>
+                <outlet property="groupTable" destination="JZm-Zo-bKy" id="9ZY-jY-lWE"/>
+                <outlet property="supView" destination="Se0-RT-o5M" id="BNi-el-Ro8"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Se0-RT-o5M">
+                    <rect key="frame" x="40" y="40" width="240" height="488"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="JZm-Zo-bKy">
+                            <rect key="frame" x="10" y="10" width="220" height="468"/>
+                            <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="sectionIndexBackgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.98932035760000003" blue="0.65336476210000005" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="JZm-Zo-bKy" firstAttribute="top" secondItem="Se0-RT-o5M" secondAttribute="top" constant="10" id="9H4-yy-i76"/>
+                        <constraint firstAttribute="trailing" secondItem="JZm-Zo-bKy" secondAttribute="trailing" constant="10" id="TGY-CA-jP1"/>
+                        <constraint firstItem="JZm-Zo-bKy" firstAttribute="leading" secondItem="Se0-RT-o5M" secondAttribute="leading" constant="10" id="jam-MM-62u"/>
+                        <constraint firstAttribute="bottom" secondItem="JZm-Zo-bKy" secondAttribute="bottom" constant="10" id="nRp-qY-nGN"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Se0-RT-o5M" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="Fwo-SQ-LTa"/>
+                <constraint firstAttribute="bottom" secondItem="Se0-RT-o5M" secondAttribute="bottom" constant="40" id="SFi-VG-Iyv"/>
+                <constraint firstItem="Se0-RT-o5M" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="XBb-gR-2vs"/>
+                <constraint firstAttribute="trailing" secondItem="Se0-RT-o5M" secondAttribute="trailing" constant="40" id="kkf-XN-KNi"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+</document>

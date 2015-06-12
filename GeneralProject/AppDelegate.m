@@ -16,6 +16,7 @@
 #import "DownloadHttpImageViewController.h"
 #import "GHRevealViewController.h"
 #import "DownloadViewController.h"
+#import "GroupTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -46,14 +47,15 @@
     //    ThreeViewController *threeController = [[ThreeViewController alloc] init];
     //    UINavigationController *navigationController3 = [[UINavigationController alloc] initWithRootViewController:threeController];
 //        FourViewController *fourController = [[FourViewController alloc] init];
-        FlipAnimationViewController *flip = [[FlipAnimationViewController alloc] init];
+//        FlipAnimationViewController *flip = [[FlipAnimationViewController alloc] init];
 //    KeyboardViewController *key = [[KeyboardViewController alloc] init];
 //    DownloadHttpImageViewController *download  = [[DownloadHttpImageViewController alloc] init];
-    DownloadViewController *download = [[DownloadViewController alloc] init];
-    GHRevealViewController *reveal = [[GHRevealViewController alloc] init];
-    reveal.contentViewController = flip;
-    reveal.rightViewController = download;
-    UINavigationController *navigationController4 = [[UINavigationController alloc] initWithRootViewController:reveal];
+//    DownloadViewController *download = [[DownloadViewController alloc] init];
+//    GHRevealViewController *reveal = [[GHRevealViewController alloc] init];
+//    reveal.contentViewController = flip;
+//    reveal.rightViewController = download;
+    GroupTableViewController *groupTable = [[GroupTableViewController alloc] init];
+    UINavigationController *navigationController4 = [[UINavigationController alloc] initWithRootViewController:groupTable];
     
     
     //    navigationController.toolbarHidden = YES;

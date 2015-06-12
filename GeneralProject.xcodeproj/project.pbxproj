@@ -23,6 +23,10 @@
 		546D0D291AA0318000E657A0 /* TestDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 546D0D271AA0318000E657A0 /* TestDemoViewController.xib */; };
 		546D0D2C1AA031C000E657A0 /* CDKeyBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 546D0D2B1AA031C000E657A0 /* CDKeyBoardView.m */; };
 		546D0D2E1AA031E400E657A0 /* CDKeyBoardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 546D0D2D1AA031E400E657A0 /* CDKeyBoardView.xib */; };
+		547852CD1B29A31400930516 /* GroupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 547852CB1B29A31400930516 /* GroupTableViewController.m */; };
+		547852CE1B29A31400930516 /* GroupTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 547852CC1B29A31400930516 /* GroupTableViewController.xib */; };
+		547852D21B29A86800930516 /* GroupCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 547852D01B29A86800930516 /* GroupCellTableViewCell.m */; };
+		547852D31B29A86800930516 /* GroupCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 547852D11B29A86800930516 /* GroupCellTableViewCell.xib */; };
 		5484C8801B14505C000EB172 /* CDButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5484C87F1B14505C000EB172 /* CDButton.m */; };
 		549689A81A21F98C00A35680 /* MyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 549689A61A21F98C00A35680 /* MyCell.m */; };
 		549689A91A21F98C00A35680 /* MyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 549689A71A21F98C00A35680 /* MyCell.xib */; };
@@ -113,6 +117,12 @@
 		546D0D2A1AA031C000E657A0 /* CDKeyBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDKeyBoardView.h; sourceTree = "<group>"; };
 		546D0D2B1AA031C000E657A0 /* CDKeyBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDKeyBoardView.m; sourceTree = "<group>"; };
 		546D0D2D1AA031E400E657A0 /* CDKeyBoardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDKeyBoardView.xib; sourceTree = "<group>"; };
+		547852CA1B29A31300930516 /* GroupTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTableViewController.h; sourceTree = "<group>"; };
+		547852CB1B29A31400930516 /* GroupTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTableViewController.m; sourceTree = "<group>"; };
+		547852CC1B29A31400930516 /* GroupTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupTableViewController.xib; sourceTree = "<group>"; };
+		547852CF1B29A86800930516 /* GroupCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupCellTableViewCell.h; sourceTree = "<group>"; };
+		547852D01B29A86800930516 /* GroupCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupCellTableViewCell.m; sourceTree = "<group>"; };
+		547852D11B29A86800930516 /* GroupCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupCellTableViewCell.xib; sourceTree = "<group>"; };
 		5484C87E1B14505C000EB172 /* CDButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDButton.h; sourceTree = "<group>"; };
 		5484C87F1B14505C000EB172 /* CDButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDButton.m; sourceTree = "<group>"; };
 		549689A51A21F98C00A35680 /* MyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCell.h; sourceTree = "<group>"; };
@@ -285,6 +295,9 @@
 				5497E8C11AA4870C00951724 /* DownloadHttpImageViewController.h */,
 				5497E8C21AA4870C00951724 /* DownloadHttpImageViewController.m */,
 				5497E8C31AA4870C00951724 /* DownloadHttpImageViewController.xib */,
+				547852CA1B29A31300930516 /* GroupTableViewController.h */,
+				547852CB1B29A31400930516 /* GroupTableViewController.m */,
+				547852CC1B29A31400930516 /* GroupTableViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -328,6 +341,9 @@
 				549689A51A21F98C00A35680 /* MyCell.h */,
 				549689A61A21F98C00A35680 /* MyCell.m */,
 				549689A71A21F98C00A35680 /* MyCell.xib */,
+				547852CF1B29A86800930516 /* GroupCellTableViewCell.h */,
+				547852D01B29A86800930516 /* GroupCellTableViewCell.m */,
+				547852D11B29A86800930516 /* GroupCellTableViewCell.xib */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -516,6 +532,7 @@
 				54CAB3971A9EEDAE005AE258 /* 6.png in Resources */,
 				544CD8F21A233A250031A41A /* ThreeViewController.xib in Resources */,
 				54CAB3BB1A9F4D3C005AE258 /* SNCDItem.xib in Resources */,
+				547852CE1B29A31400930516 /* GroupTableViewController.xib in Resources */,
 				54CAB38F1A9EEDAE005AE258 /* 2.png in Resources */,
 				54CAB3961A9EEDAE005AE258 /* 5s.png in Resources */,
 				54B7A70F1B0B13C80032CEA5 /* main_label_device@3x.png in Resources */,
@@ -523,6 +540,7 @@
 				54CAB3911A9EEDAE005AE258 /* 3.png in Resources */,
 				54CAB38D1A9EEDAE005AE258 /* 1.png in Resources */,
 				54B7A7121B0B13C80032CEA5 /* main_label_download_normal@3x.png in Resources */,
+				547852D31B29A86800930516 /* GroupCellTableViewCell.xib in Resources */,
 				549689A91A21F98C00A35680 /* MyCell.xib in Resources */,
 				546D0D291AA0318000E657A0 /* TestDemoViewController.xib in Resources */,
 				54B9DF5F1B09BB21000B01C0 /* DownloadViewController.xib in Resources */,
@@ -558,6 +576,7 @@
 			files = (
 				546D0D221AA0154700E657A0 /* KeyboardViewController.m in Sources */,
 				54CAB3B41A9F467F005AE258 /* FlipAnimationViewController.m in Sources */,
+				547852CD1B29A31400930516 /* GroupTableViewController.m in Sources */,
 				54CAB3721A9EC202005AE258 /* FourViewController.m in Sources */,
 				545B39851A1EEE2700E55911 /* AppDelegate.m in Sources */,
 				545B39821A1EEE2700E55911 /* main.m in Sources */,
@@ -574,6 +593,7 @@
 				549689A81A21F98C00A35680 /* MyCell.m in Sources */,
 				54A8A1DC1A21D9EE001B3401 /* TwoViewController.m in Sources */,
 				54B9DF521B09B420000B01C0 /* MASCompositeConstraint.m in Sources */,
+				547852D21B29A86800930516 /* GroupCellTableViewCell.m in Sources */,
 				54B9DF581B09B420000B01C0 /* NSArray+MASAdditions.m in Sources */,
 				54B9DF391B09A4BA000B01C0 /* GHRevealViewController.m in Sources */,
 				5484C8801B14505C000EB172 /* CDButton.m in Sources */,
